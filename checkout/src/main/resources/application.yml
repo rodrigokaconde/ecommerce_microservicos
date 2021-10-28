@@ -1,11 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/checkout
+    url: jdbc:postgresql://localhost:5435/checkout
     username: admin
     password: admin
     driver-class-name: org.postgresql.Driver
-    hikari:
-      connection-test-query: select 1
+
   jpa:
     hibernate:
       ddl-auto: create-drop
