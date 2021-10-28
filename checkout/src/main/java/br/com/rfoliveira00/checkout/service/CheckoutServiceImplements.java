@@ -30,9 +30,11 @@ public class CheckoutServiceImplements implements CheckoutService{
         final CheckoutCreatedEvent checkoutCreatedEvent = CheckoutCreatedEvent
                 .newBuilder()
                 .setCheckoutCode(entity.getCode())
-                .setStatus(entity.getStatus())
+                .setStatus(String.valueOf(entity.getStatus()))
                 .build();
-        checkoutCreatedSource.output().send(MessageBuilder.withPayload(checkoutCreatedEvent).build());
+        checkoutCreatedSource.output().send(MessageBuilder
+                .withPayload(checkoutCreatedEvent)
+                .build());
 
         return Optional.of(entity);
     }
